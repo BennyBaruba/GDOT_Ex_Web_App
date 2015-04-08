@@ -53,6 +53,7 @@ require(["esri/map",
              domConstruct,
              arrayUtils,
              CheckBox,
+
              Search
 
 
@@ -185,16 +186,16 @@ require(["esri/map",
             sources.push({
                 featureLayer: new FeatureLayer("https://egis.dot.ga.gov/arcgis/rest/services/GeoTRAQSExternal/MapServer/63"),
                 searchFields: ["GDOT_DISTRICT"],
-                displayField: "GDOT_DISTRICT",
+                displayField: "DISTRICT_NAME",
                 exactMatch: false,
                 outFields: ["DISTRICT_NAME","GDOT_DISTRICT","DISTRICT_URL", "EFFECTIVE_DATE"],
                 name: "GDOT Districts",
-                placeholder: "3708",
+                placeholder: "1",
                 maxResults: 6,
                 maxSuggestions: 6,
 
                 //Create an InfoTemplate and include three fields
-                infoTemplate: new InfoTemplate("GDOT District", "District Name: ${DISTRICT_NAME}</br>ID: ${GDOT_DISTRICT}</br>Effective Date: ${EFFECTIVE_DATE}"),
+                infoTemplate: new InfoTemplate("GDOT District", "District Name: ${DISTRICT_NAME}</br>ID: ${GDOT_DISTRICT}</br>URL: ${DISTRICT_URL}"),
                 enableSuggestions: true,
                 minCharacters: 0
             });
