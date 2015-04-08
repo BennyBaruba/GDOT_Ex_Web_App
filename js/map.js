@@ -28,6 +28,8 @@ require(["esri/map",
 
         "esri/dijit/Search",
 
+        "esri/renderers/UniqueValueRenderer",
+
         "dojo/domReady!"],
 
     function(Map,
@@ -54,7 +56,8 @@ require(["esri/map",
              arrayUtils,
              CheckBox,
 
-             Search
+             Search,
+             UniqueValueRenderer
 
 
 
