@@ -26,6 +26,8 @@ require(["esri/map",
         "dojo/_base/array",
         "dijit/form/CheckBox",
 
+        "esri/dijit/Search",
+
         "dojo/domReady!"],
 
     function(Map,
@@ -50,7 +52,10 @@ require(["esri/map",
              dom,
              domConstruct,
              arrayUtils,
-             CheckBox
+             CheckBox,
+             Search
+
+
 
     ) {
         parser.parse();
@@ -164,6 +169,11 @@ require(["esri/map",
             basemapGallery.on("error", function(msg) {
                 console.log("basemap gallery error:  ", msg);
             });
+
+            var s = new Search({
+                map: map
+            }, "search");
+            s.startup();
 
         }
 
