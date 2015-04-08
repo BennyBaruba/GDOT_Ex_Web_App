@@ -171,8 +171,35 @@ require(["esri/map",
             });
 
             var s = new Search({
+                enableButtonMode: true, //this enables the search widget to display as a single button
+                enableLabel: false,
+                enableInfoWindow: true,
+                showInfoWindowOnSelect: false,
                 map: map
             }, "search");
+
+            var sources = s.get("sources");
+
+            //Push the sources used to search, by default the ArcGIS Online World geocoder is included. In addition there is a feature layer of US congressional districts. The districts search is set up to find the "DISTRICTID". Also, a feature layer of senator information is set up to find based on the senator name.
+
+            sources.push({
+                featureLayer: new FeatureLayer("https://egis.dot.ga.gov/arcgis/rest/services/GeoTRAQSExternal/MapServer/63"),
+                searchFields: ["GDOT_DISTRICT"],
+                displayField: "GDOT_DISTRICT",
+                exactMatch: false,
+                outFields: ["DISTRICT_NAME","GDOT_DISTRICT","DISTRICT_URL", "EFFECTIVE_DATE"],
+                name: "GDOT Districts",
+                placeholder: "3708",
+                maxResults: 6,
+                maxSuggestions: 6,
+
+                //Create an InfoTemplate and include three fields
+                infoTemplate: new InfoTemplate("GDOT District", "District Name: ${DISTRICT_NAME}</br>ID: ${GDOT_DISTRICT}</br>Effective Date: ${EFFECTIVE_DATE}"),
+                enableSuggestions: true,
+                minCharacters: 0
+            });
+            s.set("sources", sources);
+
             s.startup();
 
         }
