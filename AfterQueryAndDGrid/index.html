@@ -1,0 +1,86 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Excercise 1 GDOT</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1,user-scalable=no">
+    <link rel="stylesheet" href="http://js.arcgis.com/3.13/dijit/themes/claro/claro.css">
+      <link rel="stylesheet" href="http://js.arcgis.com/3.13/dgrid/css/dgrid.css">
+    <link rel="stylesheet" href="http://js.arcgis.com/3.13/esri/css/esri.css">
+    <link rel="stylesheet" href="css/gettingstarted.css">
+
+
+    <script src="http://js.arcgis.com/3.13/"></script>
+    <script src="js/map.js"></script>
+
+</head>
+<body class="claro">
+    <div id="content" data-dojo-type="dijit/layout/BorderContainer"
+         data-dojo-props="design:'headline', liveSplitters:'true'"
+         style="width: 100%; height: 100%; margin: 0;">
+
+
+
+        <div id="rightPane"
+            data-dojo-type="dijit/layout/ContentPane"
+            data-dojo-props="splitter:'true',region:'right'"
+          style="width:20%;">
+
+            <div data-dojo-type="dijit/layout/AccordionContainer">
+                <div data-dojo-type="dijit/layout/ContentPane" id="legendPane"
+                    data-dojo-props="title:'Legend', selected:true">
+
+                    <div id="legendDiv"></div>
+
+                </div>
+
+                <div data-dojo-type="dijit/layout/ContentPane"
+                    data-dojo-props="title:'Layers'">
+
+                    <span style="padding: 10px 0;">Click to toggle the visibility of Layers</span>
+
+                    <div id="toggle" style="padding: 2px 2px;"></div>
+
+                </div>
+            </div>
+        </div>
+
+
+        
+
+        <div id="mapDiv"
+            data-dojo-type="dijit/layout/ContentPane"
+            data-dojo-props="region:'center'"
+            style="overflow: hidden;width:75%;">
+
+            <div id="info" class="esriSimpleSlider">
+                Click on map to find GDOT district.
+            </div>
+
+            <div id="locateAddress">
+                <input type="text" id="address" size="60" value="380 New York St, Redlands, CA, 92373"/>
+                <button id="locate" data-dojo-type="dijit/form/Button">Locate</button>
+            </div>
+          
+            <div id="HomeButton"></div>
+            <div style="position: absolute; right: 20px; top: 10px; z-Index: 999;">
+                <div data-dojo-type="dijit/TitlePane"
+                    data-dojo-props="title:'Switch Basemap', closable:false, open:false">
+                    <div data-dojo-type="dijit/layout/ContentPane" style="width: 380px; height: 280px; overflow: auto;">
+                        <div id="basemapGallery"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="search"></div>
+            <div id="printButton"></div>
+
+        </div>
+
+        <div id="cpBottom" data-dojo-type="dijit/layout/ContentPane" data-dojo-props="splitter:'true', region:'bottom'">
+        <div id="divGrid"></div>
+      </div>
+
+    </div>
+</body>
+</html>

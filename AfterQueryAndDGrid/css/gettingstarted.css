@@ -1,0 +1,43 @@
+/*
+ * Step: Add #divMap as a third selector
+ */
+html, body, #mapDiv{
+      padding: 0;
+      margin: 0;
+      height: 100%;
+    }
+
+#HomeButton {
+      position: absolute;
+      top: 95px;
+      left: 20px;
+      z-index: 50;
+    }
+
+#search {
+         display: block;
+         position: absolute;
+         z-index: 2;
+         top: 20px;
+         left: 74px;
+      }
+
+#printButton {
+      position: absolute;
+      top: 130px;
+      left: 10px;
+      z-index: 50;
+    }
+
+#locateAddress{
+      position: absolute;
+      top: 45px;
+      left: 74px;
+      z-index: 50;
+    }
+#info{
+      position: absolute;
+      bottom: 45px;
+      left: 74px;
+      z-index: 50;
+    }
